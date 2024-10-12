@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Genre Classification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+        }
+        form {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            max-width: 400px;
+            margin: 0 auto;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        input[type="file"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Upload an Audio File for Genre Classification</h1>
+    <form action="/classify" method="POST" enctype="multipart/form-data">
+        <label for="audio_file">Choose an audio file:</label>
+        <input type="file" name="audio_file" accept=".wav" required>
+        
+        <label for="model">Choose a model:</label>
+        <select name="model" required>
+            <option value="svm_model">SVM</option>
+            <option value="dt_model">Decision Tree</option>
+            <option value="rf_model">Random Forest</option>
+            <option value="logistic_model">Logistic Regression</option>
+            <option value="logistic_model">KNN</option>
+        </select>
+        
+        <button type="submit">Classify</button>
+    </form>
+</body>
+</html>
