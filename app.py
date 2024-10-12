@@ -78,6 +78,7 @@ def classify_genre():
     # Process and predict
     segments = load_and_split_test_audio(file_path)
     features = extract_features_from_segments(segments)
+    print(len(features))
 
     # Load the corresponding scaler
     with open('scaler.pkl', 'rb') as scaler_file:
@@ -85,6 +86,7 @@ def classify_genre():
 
     # Scale the features using the loaded scaler
     scaled_features = scaled.transform(features)
+    print(scaled_features)
 
     # Load the corresponding model based on user selection
     model_mapping = {
